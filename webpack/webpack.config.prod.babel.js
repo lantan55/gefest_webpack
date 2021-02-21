@@ -9,7 +9,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const env = process.env.NODE_ENV;
 
 module.exports = {
-  context: path.resolve(__dirname, "src"),
+  context: path.resolve(__dirname, "../src"),
   devtool: false,
   mode: env,
   entry: "./js/index.js",
@@ -97,11 +97,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
+      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "../dist/**/*")],
     }),
     new WebpackBuildNotifierPlugin(),
     new AssetsManifest({
-      output: "manifest.json",
+      output: "assets/manifest.json",
       publicPath: true,
     }),
     new MiniCssExtractPlugin({

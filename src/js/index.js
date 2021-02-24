@@ -1,13 +1,21 @@
 import "../styles/main.scss";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "@fancyapps/fancybox";
 import "../styles/libs/libs2.css";
 import "../styles/libs/libs.css";
 
 import "./carousels";
-import "@fancyapps/fancybox";
+import './tabs'
+import './validate'
+import './managers'
+import './steps'
 
-$(document).on("af_complete", function () {});
+
+
+$(document).on("af_complete", function () {
+  console.log('test');
+});
 
 (function ($) {
   $(document).on("click touchend", ".j-checkbox-toggle", function () {

@@ -1,38 +1,38 @@
 <form action="" method="post" class="ajax_form af_example">
     <h2>Отправить заявку</h2>
     <div class="form-group">
-        <label class="control-label" for="af_companyname">[[%af_label_companyname]]</label>
+        <label class="control-label" for="sup_companyname">[[%af_label_companyname]]</label>
         <div class="controls">
-            <input type="text" id="af_companyname" name="companyname" value="[[+fi.companyname]]" placeholder="" class="form-control"/>
+            <input type="text" id="sup_companyname" name="companyname" value="[[+fi.companyname]]" placeholder="" class="form-control"/>
             <span class="error_companyname">[[+fi.error.companyname]]</span>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label" for="af_name">[[%af_label_name]]</label>
+        <label class="control-label" for="sup_name">[[%af_label_name]]</label>
         <div class="controls">
-            <input type="text" id="af_name" name="name" value="[[+fi.name]]" placeholder="" class="form-control"/>
+            <input type="text" id="sup_name" name="name" value="[[+fi.name]]" placeholder="" class="form-control"/>
             <span class="error_name">[[+fi.error.name]]</span>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label" for="af_email">[[%af_label_email]]</label>
+        <label class="control-label" for="sup_email">[[%af_label_email]]</label>
         <div class="controls">
-            <input type="email" id="af_email" name="email" value="[[+fi.email]]" placeholder="" class="form-control"/>
+            <input type="email" id="sup_email" name="email" value="[[+fi.email]]" placeholder="" class="form-control"/>
             <span class="error_email">[[+fi.error.email]]</span>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label" for="af_phone">[[%af_label_phone]]</label>
+        <label class="control-label" for="sup_phone">[[%af_label_phone]]</label>
         <div class="controls">
-            <input type="phone" id="af_phone" name="phone" value="[[+fi.phone]]" placeholder="" class="form-control mask-phone"/>
+            <input type="phone" id="sup_phone" name="phone" value="[[+fi.phone]]" placeholder="" class="form-control mask-phone"/>
             <span class="error_phone">[[+fi.error.phone]]</span>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label" for="af_message">[[%af_label_message]]</label>
+        <label class="control-label" for="sup_message">[[%af_label_message]]</label>
         <p>Распишите информацию о товаре, который вы предлагаете</p>
         <div class="controls">
-            <textarea id="af_message" name="message" class="form-control" rows="5">[[+fi.message]]</textarea>
+            <textarea id="sup_message" name="message" class="form-control" rows="5">[[+fi.message]]</textarea>
             <span class="error_message">[[+fi.error.message]]</span>
         </div>
     </div>

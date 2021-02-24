@@ -110,11 +110,11 @@ module.exports = {
           ? "assets/css/[name].[contenthash].css"
           : "assets/css/[name].[contenthash].min.css",
     }),
-    // new webpack.ProvidePlugin({
-    //   $: "jquery",
-    //   jQuery: "jquery",
-    //   "window.jQuery": "jquery",
-    // }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    }),
   ],
 };
 

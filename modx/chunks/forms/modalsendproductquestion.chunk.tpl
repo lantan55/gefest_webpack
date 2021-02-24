@@ -4,9 +4,9 @@
     <input type="hidden" name="fullname" value="{$_modx->user.fullname}"/>
     <h2>Напишите свой вопрос</h2>    
     <div class="form-group">
-        <label class="control-label" for="af_message">[[%af_label_message]]</label>
+        <label class="control-label" for="sp_message">[[%af_label_message]]</label>
         <div class="controls">
-            <textarea id="af_message" name="message" class="form-control" rows="5">[[+fi.message]]</textarea>
+            <textarea id="sp_message" name="message" class="form-control" rows="5">[[+fi.message]]</textarea>
             <span class="error_message">[[+fi.error.message]]</span>
         </div>
     </div>

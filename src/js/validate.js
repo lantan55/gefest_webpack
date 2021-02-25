@@ -87,6 +87,9 @@ $("form.validate").validate({
 
     insertAddressData($container.find(".fact"));
     insertAddressData($container.find(".mail"));
+
+    // $(".j-sendRQform").removeAttr("disabled");
+    // console.log("generateContract");
     form.submit();
   },
   rules: {

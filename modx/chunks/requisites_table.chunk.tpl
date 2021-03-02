@@ -1,4 +1,11 @@
 <div class="col-12 mt-4 req-tabs">
+    {if $.get.updpsuccess}
+        <div class="col-12">
+            <span class="success">
+                Спасибо! Ваши данные отправлены на проверку менеджеру
+            </span>
+        </div>
+    {/if}
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-req" role="tab" aria-controls="pills-req" aria-selected="true">Реквизиты компании</a>
@@ -11,9 +18,6 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-doc" role="tab" aria-controls="pills-doc" aria-selected="false">Документы</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contract" role="tab" aria-controls="pills-contract" aria-selected="false">Договор</a>
         </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -377,42 +381,5 @@
                 {/if}
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-contract" role="tabpanel" aria-labelledby="pills-contact-tab">
-            <div class="row">
-                <div class="col-12">
-                    <h2>Договор оферты</h2>
-                    <p>Для обеспечения сделки нам необходим скан договора оферты, подписанного с вашей стороны. Пожалуйста:</p>
-                    <ol>
-                        <li>Скачайте договор</li>
-                        <li>Распечатайте</li>
-                        <li>Поставьте подпись и печать(при наличии)</li>
-                        <li>Загрузите скан или фотографию подписанного договора(pdf или zip)</li>
-                    </ol>
-                </div>
-                <div class="col-12 mt-2">
-                    {'generateContract' | snippet}
-                </div>
-                <div class="col-12 mt-2">
-                    [[!UpdateProfile? 
-                        &postHooks=`hookProfileUpdateContract, hookProfileUpdateContractEmail`
-                        &excludeExtended=`file_contract`    
-                        &validate=`file_contract:required`
-                    ]]
-                    <form action="[[~[[*id]]]]" method="post" class="form form-horizontal validate" enctype="multipart/form-data">
-                        <input type="hidden" name="email" value="[[!+email]]" />
-                        <input type="hidden" name="fullname" value="{$_modx->user.fullname}" />
-                        <input type="hidden" name="id" value="[[!+modx.user.id]]" />    
-                        <div class="form-row mt-2">
-                            <label for="files" class="mb-1">Скан договора</label>
-                            <input type="file" name="file_contract" >
-                        </div>
-                        <div class="form-row mt-2">
-                            <button type="submit" class="btn btn-primary">Загрузить договор</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-        
-    </div>
+</div>

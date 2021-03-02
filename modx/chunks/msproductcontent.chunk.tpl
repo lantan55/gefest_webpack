@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-12 mt-2">
                         <div class="product-options__title">
-                            Минимальная отгрузка(кг): <strong>{$_modx->resource.min_otgruzka[0]}</strong>
+                            Минимальная отгрузка(кг): <span class="j-cnt-min">{$_modx->resource.min_otgruzka[0]}</span>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-6 mt-2">
                         <div class="product-options__title">
-                            На остатке: <strong>{$_modx->resource.vs_na_ostatke[0]} кг</strong>
+                            На остатке: <span class="j-cnt-max">{$_modx->resource.vs_na_ostatke[0]}</span> кг
                         </div>
                     </div>
                     {if $_modx->resource.otgruzka_nestandart[0] !== 'нет'}
@@ -91,12 +91,12 @@
                     {/if}
                 </div>
         </div>
-        <hr>
+        <hr class="mt-4">
         <div class="col-12 row">
-            <div class="col-2 recent">
+            <!-- <div class="col-2 recent">
                 <h6>Недавно просмотренные товары</h6>
                 <div class="owl-carousel owl-theme  carousel-recent" id="slider4">
-    
+                
                     <div class="item">
                         {'!pdoPage' | snippet:
                             [
@@ -115,7 +115,7 @@
                         
                     </div>              
                 </div>
-            </div>
+            </div> -->
             <div class="col-10">
                 <div class="row">
                     <div class="col-6">

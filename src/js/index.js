@@ -12,6 +12,7 @@ import "./managers";
 import "./steps";
 import "./masks";
 import "./favorites";
+import "./product";
 
 $(document).on("af_complete", function () {
   console.log("test");
@@ -175,19 +176,14 @@ function filters() {
     }
   });
 
-  console.log(fields);
-
-  // И отправляем этот массив на сервер.
   $.post(
     document.location.href,
     {
       action: "filter",
       fields: fields,
-      // Параметр hash - обязательный (он содержит настройки pdoPage)
       hash: pdoPage.configs.page.hash,
     },
     function () {
-      // Просим pdoPage загрузить новый список ресурсов
       var tmp = document.location.href.split("?");
       pdoPage.keys.page = 0;
       pdoPage.loadPage(tmp[0], pdoPage.configs.page);

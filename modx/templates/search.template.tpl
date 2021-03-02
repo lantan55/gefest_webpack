@@ -7,7 +7,11 @@
                 <div class="pageTop">
                     <div class="col-md-12"></div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-3 col-xxl-2">
+                    {'filter' | chunk}
+                    {'subcategory-sidebar' | chunk}
+                </div> -->
+                <div class="col-md-9">
                     <div class="row">
                         {$_modx->resource.content}
                     </div>

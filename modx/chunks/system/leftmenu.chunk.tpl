@@ -13,7 +13,7 @@
     <div class="lk_sidebar__title">Личный кабинет</div>
     <ul class="lk_sidebar__list">
         {var $currUrl = $_modx->resource.id}
-        <li class="{$currUrl == 85 ? 'active' : ''}"><a href="{85 | url}">Мои заказы</a></li>
+        <!--<li class="{$currUrl == 85 ? 'active' : ''}"><a href="{85 | url}">Мои заказы</a></li>-->
         <li class="{$currUrl == 37 ? 'active' : ''}"><a href="{37 | url}">Реквизиты</a></li>
         <li class="{$currUrl == 42 ? 'active' : ''}"><a href="{42 | url}">Изменить пароль</a></li>
         <li><a href="{41| url}/?service=logout" title="[[+actionMsg]]">Выход</a></li>

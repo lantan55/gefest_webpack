@@ -12,10 +12,10 @@ switch($eventName) {
     $total = $options['vs_na_ostatke'][0];
     $newTotal = (int)$total - (int)$currentProduct['count'];
     
-    if($newTotal > 0){
+    if($newTotal >= 0){
       $currentProduct['total'] = $newTotal;
     } else {
-      $currentProduct['total'] = 0;
+      // $currentProduct['total'] = 0;
       $modx->event->output('Вы пытаетесь добавить больше максимального веса');
       return;
     }

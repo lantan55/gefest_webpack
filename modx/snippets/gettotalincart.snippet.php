@@ -12,11 +12,13 @@ if (empty($list)) {
 $miniShop2 = $modx->getService('miniShop2');
 $miniShop2->initialize($modx->context->key);
 
-$cart = $miniShop2->cart->get(); // товары корзины
+$cart = $miniShop2->cart->get();
 
-$modx->log(1, print_r($cart, true));
-// $key = $list['total_key'];
-// $modx->log(1, print_r($_SESSION['minishop2']['cart'], true));
-$output = json_encode($cart);
-
-return $output;
+$output = array();
+foreach ($cart as $cart_item) {
+    if($cart_item['id'] == $list['id']) {
+        $output = $cart_item;
+    }
+    
+}
+return json_encode($output);

@@ -171,8 +171,12 @@
                                 <h5>Оформление заказа:</h5>
                             </div>
                             <div class="col-12 d-flex justify-content-between">
-                                <span>Укажите/выберите кол-во</span> 
-                                <input type="number" name="count" id="product_price" class="form-control col-md-6" value="1"/>
+                                <span>Укажите вес(в кг)</span> 
+                                <div class="input-field">
+                                    <input type="number" name="count" id="product_price" class="form-control col-md-6" value="1"/>
+                                    <label class="product_price__label j-countLabel" for=""></label>
+                                </div>
+                                
                             </div>
                             <div class="col-12 row">
                                 {if $_modx->resource.ves_v_kg[0]}

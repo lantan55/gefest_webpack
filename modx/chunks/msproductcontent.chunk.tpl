@@ -173,21 +173,22 @@
                             <div class="col-12 d-flex justify-content-between">
                                 <span>Укажите вес(в кг)</span> 
                                 <div class="input-field">
-                                    <input type="number" name="count" id="product_price" class="form-control col-md-6" value="1"/>
+                                    {ignore}
+                                    <input  type="text" name="count" pattern="[0-9]+([\.][0-9]{1,2})?" id="product_price" class="form-control col-md-6" value="1"/>
                                     <label class="product_price__label j-countLabel" for=""></label>
+                                    {/ignore}
                                 </div>
                                 
                             </div>
                             <div class="col-12 row">
                                 {if $_modx->resource.ves_v_kg[0]}
                                     {var $sizes = $_modx->resource.ves_v_kg[0] | split: ';'}
-                                    {foreach $sizes as $size}
-                                        <div class="btn-group-toggle" data-toggle="buttons">                                        
-                                            <label class="btn btn-secondary ">
-                                                <input type="checkbox" checked autocomplete="off"> {$size}
-                                            </label>
-                                        </div> 
-                                    {/foreach}
+                                    <div class="btn-group j-countButtons"  role="group">
+                                        {foreach $sizes as $key => $size}
+                                            <input type="checkbox"  class="btn-check" id="btncheck{$key}" value="{$size}" autocomplete="off">
+                                            <label class="btn btn-outline-success" for="btncheck{$key}">{$size} кг</label>
+                                        {/foreach}
+                                    </div>
                                 {/if}
                             </div> 
                             <div class="col-12 row mt-4">

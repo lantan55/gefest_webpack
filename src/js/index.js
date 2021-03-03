@@ -3,6 +3,8 @@ import "../styles/libs/libs.css";
 import "../styles/main.scss";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "@popperjs/core";
+import "bootstrap";
 import "@fancyapps/fancybox";
 
 import "./carousels";

@@ -12,11 +12,17 @@ if (empty($list)) {
 $miniShop2 = $modx->getService('miniShop2');
 $miniShop2->initialize($modx->context->key);
 
+
+$_SESSION['btn_list'] = $list['btn_list'];
+// $modx->log(1, 'список кнопкок '. print_r($_SESSION['btn_list'], true));
+
+
 $cart = $miniShop2->cart->get();
 
 $output = array();
-foreach ($cart as $cart_item) {
+foreach ($cart as $k=>$cart_item) {
     if($cart_item['id'] == $list['id']) {
+        $cart_item['key'] = $k;
         $output = $cart_item;
     }
     

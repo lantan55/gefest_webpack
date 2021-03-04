@@ -181,12 +181,15 @@
                                 
                             </div>
                             <div class="col-12 row">
+                                
                                 {if $_modx->resource.ves_v_kg[0]}
                                     {var $sizes = $_modx->resource.ves_v_kg[0] | split: ';'}
                                     <div class="btn-group j-countButtons"  role="group">
                                         {foreach $sizes as $key => $size}
-                                            <input type="checkbox"  class="btn-check" id="btncheck{$key}" value="{$size}" autocomplete="off">
-                                            <label class="btn btn-outline-success" for="btncheck{$key}">{$size} кг</label>
+                                            <div class="btn-check-wrap" id="wrap_btncheck{$key}">
+                                                <input type="checkbox"  class="btn-check" id="btncheck{$key}" value="{$size}" autocomplete="off">
+                                                <label class="btn btn-outline-success" for="btncheck{$key}">{$size} кг</label>
+                                            </div>
                                         {/foreach}
                                     </div>
                                 {/if}

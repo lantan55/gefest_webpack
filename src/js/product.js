@@ -3,6 +3,8 @@ const max = parseFloat($(".j-cnt-max").text());
 
 let currentTotal = +max;
 let cart = {};
+const btnAddedList = [];
+const $selectionButtons = $(".j-countButtons");
 
 $("#product_price").val(min).attr({ min: min, max: max });
 
@@ -14,9 +16,12 @@ function getCart() {
       {
         cart: JSON.stringify({
           id: productId,
+          btn_list: btnAddedList,
+          key: cart.key,
         }),
       },
       function (data) {
+        console.log(data);
         cart = JSON.parse(data);
         cart.count = cart.count || 0;
 
@@ -47,17 +52,15 @@ function getCart() {
   }
 }
 
-getCart();
-
 miniShop2.Callbacks.add("Cart.add.before", "restrict_cart1", function () {
   const current = +$("#product_price").val();
 
   if (current < min) {
-    miniShop2.Message.error("Количество не должно быть меньше минимального!");
-    return false;
+    // miniShop2.Message.error("Количество не должно быть меньше минимального!");
+    // return false;
   } else if (current > currentTotal) {
-    miniShop2.Message.error("Количество превышает максимальное значение!");
-    return false;
+    // miniShop2.Message.error("Количество превышает максимальное значение!");
+    // return false;
   } else {
     return true;
   }
@@ -69,11 +72,22 @@ miniShop2.Callbacks.add(
     const count = response.data.total_count;
     currentTotal = max - count;
 
+    if ($selectionButtons.length) {
+      const $buttons = $selectionButtons.find("input:checked");
+      $buttons.each(function () {
+        $(this).val;
+        btnAddedList.push({
+          id: $(this).attr("id"),
+          value: $(this).val(),
+        });
+      });
+      console.clear();
+      console.log(btnAddedList);
+    }
+
     getCart();
   }
 );
-
-const $selectionButtons = $(".j-countButtons");
 
 if ($selectionButtons.length) {
   $("#product_price").prop("readonly", true);
@@ -96,3 +110,5 @@ if ($selectionButtons.length) {
     }
   });
 }
+
+getCart();

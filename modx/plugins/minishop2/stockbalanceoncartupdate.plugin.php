@@ -27,8 +27,6 @@ switch($eventName) {
       $modx->event->output('Вы пытаетесь добавить больше максимального веса');
       return;
     }
-    
-    
     break;
 }
 return;

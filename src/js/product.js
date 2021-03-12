@@ -90,7 +90,7 @@ miniShop2.Callbacks.add(
 );
 
 if ($selectionButtons.length) {
-  $("#product_price").prop("readonly", true);
+  // $("#product_price").prop("readonly", true);
   const buttonList = [...$selectionButtons.find("input")];
   buttonList.sort((a, b) => +a.value - +b.value);
 
@@ -110,5 +110,7 @@ if ($selectionButtons.length) {
     }
   });
 }
+
+$(document).on("k");
 
 getCart();

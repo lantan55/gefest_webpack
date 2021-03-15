@@ -1,3 +1,5 @@
+const { each } = require("jquery");
+
 let min = parseFloat($(".j-cnt-min").text());
 const max = parseFloat($(".j-cnt-max").text());
 
@@ -22,29 +24,30 @@ function getCart() {
       },
       function (data) {
         console.log(data);
+        const currentProduct = $(".ms2_form input[name='id']").val();
         cart = JSON.parse(data);
         cart.count = cart.count || 0;
 
-        console.log(`currentTotal = ${currentTotal}`);
-        console.log(`max = ${max}`);
-
-        currentTotal = max - cart.count;
-        if (cart.count >= min) {
-          min = 1;
+        console.log(cart.id);
+        console.log(currentProduct);
+        if (cart.id === currentProduct) {
+          $(".cart-status").hide();
+          $(".cart-status-add").text("Товар добавлен в корзину");
         }
-        if (currentTotal > 0) {
-          $(".j-countLabel").text(
-            `укажите вес от ${min} до ${currentTotal} кг`
-          );
-        } else {
-          $('button[value="cart/add"]').attr("disabled", "disabled");
-          $(".j-countLabel").text(`Вы добавили максимальный вес`);
-        }
+        // currentTotal = max - cart.count;
+        // if (cart.count >= min) {
+        //   min = 1;
+        // }
+        // if (currentTotal > 0) {
+        //   $(".j-countLabel").text(
+        //     `укажите вес от ${min} до ${currentTotal} кг`
+        //   );
+        // } else {
+        //   $('button[value="cart/add"]').attr("disabled", "disabled");
+        //   $(".j-countLabel").text(`Вы добавили максимальный вес`);
+        // }
 
-        $("#product_price").val(min).attr({ min: min, max: currentTotal });
-
-        console.log(`min - ${min}`);
-        console.log(`max - ${currentTotal}`);
+        // $("#product_price").val(min).attr({ min: min, max: currentTotal });
       }
     ).fail(function () {
       alert("Произошла ошибка. Обновите страницу");

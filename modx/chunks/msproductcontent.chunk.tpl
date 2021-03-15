@@ -170,7 +170,7 @@
                             <div class="col-12">
                                 <h5>Оформление заказа:</h5>
                             </div>
-                            <div class="col-12 d-flex justify-content-between">
+                            <div class="col-12  cart-status">
                                 <span>Укажите вес(в кг)</span> 
                                 <div class="input-field">
                                     {ignore}
@@ -180,7 +180,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="col-12 row">
+                            <div class="col-12 row cart-status">
                                 
                                 {if $_modx->resource.ves_v_kg[0]}
                                     {var $sizes = $_modx->resource.ves_v_kg[0] | split: ';'}
@@ -194,14 +194,10 @@
                                     </div>
                                 {/if}
                             </div> 
-                            <div class="col-12 row mt-4">
-                                
-                                
-                            </div>
                         </div>
                         {if $_modx->isAuthenticated()}
                             {if $_modx->user.id | ismember : 'Подтвержденные'}
-                                <div class="row justify-content-center mt-4">
+                                <div class="row justify-content-center mt-4  cart-status-add">
                                     <div class="col-6 ">
                                         <button class="btn btn-success btn-block" type="submit" name="ms2_action" value="cart/add">
                                             {'ms2_frontend_add_to_cart' | lexicon}

@@ -4,7 +4,7 @@
     [[+popular:isnot=``:then=`<span class="badge badge-secondary badge-pill col-auto pop">[[%ms2_frontend_popular]]</span>`]]
     [[+favorite:isnot=``:then=`<span class="badge badge-secondary badge-pill col-auto fav">[[%ms2_frontend_favorite]]</span>`]]
 </div> -->
-<form class="form-horizontal ms2_form" method="post">
+<form class="form-horizontal ms2_form product" method="post">
 <div id="msProduct" class="row align-items-start">
         <div class="col-12 col-md-6">
             {'msGallery' | snippet}
@@ -23,7 +23,7 @@
                 {/if}
                 <div class="row">
                     <div class="col-12">
-                        <h1>{$_modx->resource.pagetitle}</h1>
+                        <h1>{$_modx->resource.pagetitle} </h1>
                     </div>
                 </div>
                 <div class="row product-options">
@@ -116,8 +116,9 @@
                     </div>              
                 </div>
             </div> -->
-            <div class="col-10">
+            <div class="col-12">
                 <div class="row">
+
                     <div class="col-6">
                         <h5>Дополнительные параметры:</h5>
                         <table class="table table-bordered product-table">
@@ -166,22 +167,22 @@
                         </table>
                     </div>
                     <div class="col-6">
-                        <div class="row">
+                        <div class="row add-to-cart__status">
                             <div class="col-12">
                                 <h5>Оформление заказа:</h5>
                             </div>
-                            <div class="col-12  cart-status">
-                                <span>Укажите вес(в кг)</span> 
-                                <div class="input-field">
-                                    {ignore}
-                                    <input  type="text" name="count" pattern="[0-9]+([\.][0-9]{1,2})?" id="product_price" class="form-control col-md-6" value="1"/>
+                            <div class="col-12 add-to-cart__col">
+                                <div class="add-to-cart__count">
+                                    <span>Укажите вес(в кг)</span> 
+                                    <div class="input-field">
+                                        {ignore}
+                                        <input  type="text" name="count" pattern="[0-9]+([\.][0-9]{1,2})?" id="product_price" class="form-control form__count" value="1"/>
+                                        {/ignore}
+                                    </div>
                                     <label class="product_price__label j-countLabel" for=""></label>
-                                    {/ignore}
-                                </div>
-                                
+                                </div>                                
                             </div>
-                            <div class="col-12 row cart-status">
-                                
+                            <div class="col-12  add-to-cart__col">
                                 {if $_modx->resource.ves_v_kg[0]}
                                     {var $sizes = $_modx->resource.ves_v_kg[0] | split: ';'}
                                     <div class="btn-group j-countButtons"  role="group">
@@ -193,35 +194,35 @@
                                         {/foreach}
                                     </div>
                                 {/if}
+                            </div>
+                            <div class="col-8  add-to-cart__success">
+                                <div class="add-to-cart__message">
+                                    Товар добавлен в корзину. <a href="{45 | url}">Перейти в корзину</a> 
+                                </div>
                             </div> 
-                        </div>
-                        {if $_modx->isAuthenticated()}
-                            {if $_modx->user.id | ismember : 'Подтвержденные'}
-                                <div class="row justify-content-center mt-4  cart-status-add">
-                                    <div class="col-6 ">
+                        
+                            {if $_modx->isAuthenticated()}
+                                {if $_modx->user.id | ismember : 'Подтвержденные'}
+                                    <div class="col-6 add-to-cart__col">
                                         <button class="btn btn-success btn-block" type="submit" name="ms2_action" value="cart/add">
                                             {'ms2_frontend_add_to_cart' | lexicon}
                                         </button>
                                     </div>
-                                </div>
-                            {else}
-                                <div class="row justify-content-start mt-4">
-                                    <div class="col-8 ">
+                                {else}
+                                    <div class="col-12 add-to-cart__col">
                                         <div class="ms2_product__notify">
                                             Для покупки необходимо заполнить <a href="{'37' | url}">реквизиты</a> и дождаться активации профиля компании
                                         </div>
                                     </div>
-                                </div>
-                            {/if}
-                        {else}
-                            <div class="row justify-content-start mt-4">
-                                <div class="col-8 ">
+                                {/if}
+                            {else}
+                                <div class="col-12  add-to-cart__col">
                                     <div class="ms2_product__notify">
                                         Для покупки необходимо <a href="{'41' | url}">зарегистрироваться</a>
                                     </div>
                                 </div>
-                            </div>
-                        {/if}
+                            {/if}
+                        </div>
                     </div>
                 </div>
                 <div class="row">

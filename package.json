@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --progress --config webpack/webpack.config.dev.babel.js",
-    "build": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.config.prod.babel.js"
+    "build": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.config.prod.babel.js",
+    "stylelint-check": "stylelint-config-prettier-check"
   },
   "author": "",
   "license": "ISC",

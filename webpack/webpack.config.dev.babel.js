@@ -96,9 +96,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "../dist/**/*")],
-    }),
+    new CleanWebpackPlugin(),
     new WebpackBuildNotifierPlugin(),
     new AssetsManifest({
       output: "assets/manifest.json",

@@ -1,4 +1,4 @@
-const { each } = require("jquery");
+const currentProduct = $(".product.ms2_form input[name='id']").val() || null;
 
 let min = parseFloat($(".j-cnt-min").text());
 const max = parseFloat($(".j-cnt-max").text());
@@ -23,31 +23,29 @@ function getCart() {
         }),
       },
       function (data) {
-        console.log(data);
         const currentProduct = $(".ms2_form input[name='id']").val();
+        const $container = $(".add-to-cart__status");
         cart = JSON.parse(data);
         cart.count = cart.count || 0;
 
-        console.log(cart.id);
-        console.log(currentProduct);
-        if (cart.id === currentProduct) {
-          $(".cart-status").hide();
-          $(".cart-status-add").text("Товар добавлен в корзину");
-        }
-        // currentTotal = max - cart.count;
-        // if (cart.count >= min) {
-        //   min = 1;
-        // }
-        // if (currentTotal > 0) {
-        //   $(".j-countLabel").text(
-        //     `укажите вес от ${min} до ${currentTotal} кг`
-        //   );
-        // } else {
-        //   $('button[value="cart/add"]').attr("disabled", "disabled");
-        //   $(".j-countLabel").text(`Вы добавили максимальный вес`);
-        // }
+        cart.id === currentProduct
+          ? $container.addClass("active")
+          : $container.removeClass("active");
 
-        // $("#product_price").val(min).attr({ min: min, max: currentTotal });
+        currentTotal = max - cart.count;
+        if (cart.count >= min) {
+          min = 1;
+        }
+        if (currentTotal > 0) {
+          $(".j-countLabel").text(
+            `укажите вес от ${min} до ${currentTotal} кг`
+          );
+        } else {
+          $('button[value="cart/add"]').attr("disabled", "disabled");
+          $(".j-countLabel").text(`Вы добавили максимальный вес`);
+        }
+
+        $("#product_price").val(min).attr({ min: min, max: currentTotal });
       }
     ).fail(function () {
       alert("Произошла ошибка. Обновите страницу");
@@ -57,16 +55,14 @@ function getCart() {
 
 miniShop2.Callbacks.add("Cart.add.before", "restrict_cart1", function () {
   const current = +$("#product_price").val();
-
   if (current < min) {
-    // miniShop2.Message.error("Количество не должно быть меньше минимального!");
-    // return false;
   } else if (current > currentTotal) {
-    // miniShop2.Message.error("Количество превышает максимальное значение!");
-    // return false;
   } else {
     return true;
   }
+  console.log(`current - ${current}`);
+  console.log(`min - ${min}`);
+  console.log(`max - ${max}`);
 });
 miniShop2.Callbacks.add(
   "Cart.add.response.success",
@@ -84,21 +80,17 @@ miniShop2.Callbacks.add(
           value: $(this).val(),
         });
       });
-      console.clear();
-      console.log(btnAddedList);
+      // console.clear();
+      // console.log(btnAddedList);
     }
-
     getCart();
   }
 );
 
 if ($selectionButtons.length) {
-  // $("#product_price").prop("readonly", true);
   const buttonList = [...$selectionButtons.find("input")];
   buttonList.sort((a, b) => +a.value - +b.value);
-
   $(buttonList).first().attr("checked", "checked");
-
   $(document).on("change", ".j-countButtons input", function () {
     const count = +$(this).val();
     const currentValue = +$("#product_price").val();
@@ -113,7 +105,4 @@ if ($selectionButtons.length) {
     }
   });
 }
-
-$(document).on("k");
-
 getCart();

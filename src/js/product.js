@@ -55,15 +55,21 @@ function getCart() {
 
 miniShop2.Callbacks.add("Cart.add.before", "restrict_cart1", function () {
   const current = +$("#product_price").val();
-  if (current < min) {
-  } else if (current > currentTotal) {
-  } else {
-    return true;
-  }
+
+  // if (cart.id === currentProduct) {
+  //   console.log("уже в корзине");
+  // }
+  console.log(`cart - ${cart}`);
+
   console.log(`current - ${current}`);
   console.log(`min - ${min}`);
   console.log(`max - ${max}`);
+  if (current > max) {
+    miniShop2.Message.error("Вы пытаетесь добавить больше максимального веса");
+    return false;
+  }
 });
+
 miniShop2.Callbacks.add(
   "Cart.add.response.success",
   "restrict_cart",
@@ -80,8 +86,6 @@ miniShop2.Callbacks.add(
           value: $(this).val(),
         });
       });
-      // console.clear();
-      // console.log(btnAddedList);
     }
     getCart();
   }

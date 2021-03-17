@@ -5,7 +5,7 @@ const max = parseFloat($(".j-cnt-max").text());
 
 let currentTotal = +max;
 let cart = {};
-const btnAddedList = [];
+let btnAddedList = [];
 const $selectionButtons = $(".j-countButtons");
 
 $("#product_price").val(min).attr({ min: min, max: max });
@@ -13,6 +13,18 @@ $("#product_price").val(min).attr({ min: min, max: max });
 function getCart() {
   const productId = $('#msProduct input[name="id"]').val();
   if (productId) {
+    const btnAddedList = [];
+
+    if ($selectionButtons.length) {
+      const $buttons = $selectionButtons.find("input:checked");
+      $buttons.each(function () {
+        btnAddedList.push({
+          id: $(this).attr("id"),
+          value: $(this).val(),
+        });
+      });
+    }
+
     $.post(
       "/gettotal",
       {
@@ -60,7 +72,6 @@ miniShop2.Callbacks.add("Cart.add.before", "restrict_cart1", function () {
   //   console.log("уже в корзине");
   // }
   console.log(`cart - ${cart}`);
-
   console.log(`current - ${current}`);
   console.log(`min - ${min}`);
   console.log(`max - ${max}`);

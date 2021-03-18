@@ -88,9 +88,9 @@ if(isset($customer)){
     $templateProcessor->setValue('customer_phone', $customer["Реквизиты"]["телефон"]);
     $templateProcessor->setValue('customer_dir_name', nameShort( $customer["Руководство"]["директор"]["фио"] ) );
     
-    $templateProcessor->saveAs(MODX_ASSETS_PATH . ' Договор №' . $new_number . ' от ' . $invoice_date . '.docx');
+    $templateProcessor->saveAs(MODX_ASSETS_PATH . 'Договор №' . $new_number . ' от ' . $invoice_date . '.docx');
     
-    $output = 'assets/' . ' Договор №' . $new_number . ' от ' . $invoice_date . '.docx';
+    $output = 'assets/' . 'Договор №' . $new_number . ' от ' . $invoice_date . '.docx';
     
     return "<a class='btn btn-secondary' href='$output' download>Скачать договор</a>";
     

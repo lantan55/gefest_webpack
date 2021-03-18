@@ -12,7 +12,7 @@ if (empty($list)) {
 $miniShop2 = $modx->getService('miniShop2');
 $miniShop2->initialize($modx->context->key);
 
-
+$_SESSION['btn_list'] = array();
 $_SESSION['btn_list'] = $list['btn_list'];
 // $modx->log(1, 'список кнопкок '. print_r($_SESSION['btn_list'], true));
 

@@ -30,6 +30,7 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "imagemin-zopfli": "^7.0.0",
     "img-loader": "^3.0.2",
+    "js-cookie": "^2.2.1",
     "mini-css-extract-plugin": "^1.3.8",
     "node-sass": "^4.14.0",
     "owl.carousel": "^2.3.4",

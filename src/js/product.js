@@ -97,17 +97,16 @@ miniShop2.Callbacks.add(
 );
 
 if ($selectionButtons.length) {
-  const buttonList = [...$selectionButtons.find("input")];
+  $("#product_price").attr("readonly", "readonly");
+  let buttonList = [...$selectionButtons.find("input")];
   buttonList.sort((a, b) => +a.value - +b.value);
+
   $(buttonList).first().attr("checked", "checked");
   $(document).on("change", ".j-countButtons input", function () {
     const count = +$(this).val();
     const currentValue = +$("#product_price").val();
 
     if ($(this).is(":checked")) {
-      // console.log(`count - ${count}`);
-      // console.log(`currentValue - ${currentValue}`);
-      // console.log(`разница - ${currentValue - count}`);
       $("#product_price").val((currentValue + count).toFixed(2));
     } else {
       $("#product_price").val((currentValue - count).toFixed(2));

@@ -10,7 +10,7 @@ let btnAddedList = [];
 
 const $container = $(".add-to-cart__status");
 
-$("#product_price").val(min).attr({ min: min, max: max });
+$("#product_price").val(0).attr({ min: min, max: max });
 
 function getCart(btnList) {
   const productId = $('#msProduct input[name="id"]').val();
@@ -41,15 +41,13 @@ function getCart(btnList) {
           min = 1;
         }
         if (currentTotal > 0) {
-          $(".j-countLabel").text(
-            `укажите вес от ${min} до ${currentTotal} кг`
-          );
+          $(".j-countLabel").text(`укажите вес  до ${currentTotal} кг`);
         } else {
           $('button[value="cart/add"]').attr("disabled", "disabled");
           $(".j-countLabel").text(`Вы добавили максимальный вес`);
         }
 
-        $("#product_price").val(min).attr({ min: min, max: currentTotal });
+        $("#product_price").val(0).attr({ min: min, max: currentTotal });
       }
     ).fail(function () {
       alert("Произошла ошибка. Обновите страницу");
@@ -101,7 +99,7 @@ if ($selectionButtons.length) {
   let buttonList = [...$selectionButtons.find("input")];
   buttonList.sort((a, b) => +a.value - +b.value);
 
-  $(buttonList).first().attr("checked", "checked");
+  // $(buttonList).first().attr("checked", "checked");
   $(document).on("change", ".j-countButtons input", function () {
     const count = +$(this).val();
     const currentValue = +$("#product_price").val();

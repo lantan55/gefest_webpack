@@ -10,8 +10,8 @@
                 <thead>
                 <tr>
                     <th scope="col" class="title">{'ms2_cart_title' | lexicon}</th>
-                    <th scope="col" class="count">{'ms2_cart_count' | lexicon}</th>
-                    <th scope="col" class="weight">{'ms2_cart_weight' | lexicon}</th>
+                    <th scope="col" class="count">Вес</th>
+                    <th scope="col" class="weight"></th>
                     <th scope="col" class="price">{'ms2_cart_price' | lexicon}</th>
                     <th scope="col" class="remove"></th>
                 </tr>
@@ -57,9 +57,9 @@
                                         <input type="hidden" name="key" value="{$product.key}"/>
                                         <div class="form-group">
                                             <div class="input-group input-group-sm">
-                                                <input type="number" name="count" value="{$product.count}" class="form-control"/>
+                                                <input disabled type="number" name="count" value="{$product.count}" class="form-control"/>
                                                 <div class="input-group-append">
-                                                    <span class="input-group-text">{'ms2_frontend_count_unit' | lexicon}</span>
+                                                    <span class="input-group-text">кг</span>
                                                 </div>
                                             </div>
                                             <button class="btn btn-sm" type="submit" name="ms2_action" value="cart/change">&#8635;</button>
@@ -68,9 +68,9 @@
                                 </div>
                             </td>
                             <td class="weight ">
-                                <div class="d-flex align-items-center">
+                                <!-- <div class="d-flex align-items-center">
                                     <span class="text-nowrap">{$product.weight} {'ms2_frontend_weight_unit' | lexicon}</span>
-                                </div>
+                                </div> -->
                             </td>
                             <td class="price ">
                                 <div class="d-flex align-items-center">
@@ -94,12 +94,12 @@
                 <tr class="footer">
                     <th class="total">{'ms2_cart_total' | lexicon}:</th>
                     <th class="total_count">
-                        <span class="ms2_total_count">{$total.count}</span>
-                        {'ms2_frontend_count_unit' | lexicon}
+                        <!-- <span class="ms2_total_count">{$total.count}</span>
+                        {'ms2_frontend_count_unit' | lexicon} -->
                     </th>
                     <th class="total_weight text-nowrap">
-                        <span class="ms2_total_weight">{$total.weight}</span>
-                        {'ms2_frontend_weight_unit' | lexicon}
+                        <!-- <span class="ms2_total_weight">{$total.weight}</span>
+                        {'ms2_frontend_weight_unit' | lexicon} -->
                     </th>
                     <th class="total_cost text-nowrap" colspan="2">
                         <span class="ms2_total_cost">{$total.cost}</span>

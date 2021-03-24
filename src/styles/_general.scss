@@ -5,7 +5,21 @@
 }
 
 .product_price__label {
+  color: #28a745;
   font-size: 0.8rem;
   text-transform: lowercase;
-  color: #28a745;
+}
+
+.header__label.ms2_total_count {
+  display: none;
+}
+
+#msCart .title a img {
+  width: 100%;
+  width: 100px;
+  background: #efefef;
+  border-radius: 5px;
+}
+.badge {
+  display: none !important;
 }
